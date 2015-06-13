@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>ZKD 2014</title>
+	<meta charset='UTF-8'>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" href="css/grid.css" />
+</head>
+
+<body>
+
+	<header class="site-header">
+		<div class="row">
+			<h1 class="logo"><img src="images/logo.png" style="width: 400px; height: 60px;"/></h1>
+			<a href="login.html">Prijava</a>
+		</div>
+	</header>
+  
+    <div class="row">
+		<nav class="main-navigation">
+			<ul>
+			  <li><a href="index.html">Pocetna</a></li>
+			  <li><a href="popis_proizvoda.php">Popis proizvoda</a></li>
+			  <li><a href="unos_proizvoda.php">Unos proizvoda</a></li>
+			  <li><a href="#">Kako nas naci</a></li>
+			  <li><a href="#">Kontakt</a></li>
+			</ul>
+		</nav>
+		
+		<div class="login">
+			
+			<form name="login" action="login.php" method="POST" accept-charset='UTF-8'>
+			<fieldset >
+				<legend>Prijava</legend>
+				<input type="hidden" name="submitted" id="submitted" value='1'/>
+				 
+					<label for="username" >Korisničko Ime*:</label>
+					<input type="text" name="username" id="username"  maxlength="50" />
+						</br></br>
+					<label for="password" >Lozinka*:</label>
+					<input type="password" name="password" id="password" maxlength="50" />
+						</br></br>
+				<input type="submit" name="Submit" value='Prijava' />
+				<input type="reset" name="reset" value="Otkaži" />
+ 
+			</fieldset>	
+			
+		</div>
+		
+	</div>
+
+
+	<footer class="site-footer">
+
+		<p>Copyright &copy; ZKD j.d.o.o. @2015.</p>
+		
+	</footer>
+	
+</body>
+</html>
