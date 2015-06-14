@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+
+.site-header { 
+  padding: 10px 0;
+  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  z-index: 100;
+  position: fixed;
+  background: white;
+  width: 100%;
+  top: 0;
+}
+
+.site-header h1 {
+	float: left;
+}
+
+.site-header a {
+	float: right;
+	margin-top: 40px;
+	text-decoration: none;
+	display: inline-block;
+	padding: 10px 20px;
+	font-weight: bold;
+	color: green;
+}
+
+.logo2 {
+	margin-top: 100px;
+	float: left;
+	margin-top: 25%;
+}
+
+.welcome {
+	float: left;
+	margin-top: 40px;
+	padding: 10px 20px;
+	float: right;
+}
+
+.site-header a:hover, .main-navigation a:hover{
+  background: #BC1F2A;
+  color: #FFF;
+  transition: 300ms;
+  }
+
+
+.main-navigation {
+	margin-top: 170px;
+	width: 240px;
+	overflow: auto;
+	float: left;
+}
+
+.main-navigation a {
+	text-decoration: none;
+	color: green;
+	font-weight: bold;
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 10px 20px;
+}
+
+.main-navigation li {
+	list-style-type: none;
+	padding-bottom: 10px;
+}
+
+.main-navigation ul {
+	padding: 10px 0;
+}
+
+.sadrzaj{
+	float: right;
+	background-color: red;
+	width: 740px;
+	margin-top: 200px;
+	text-align: center;
+}
+
+.site-footer {
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	padding: 10px;
+	background: #FFF;
+	width: 100%;
+	-webkit-box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+
+
+.login {
+	float: right;
+	margin: 0 auto;
+	margin-top: 25%;
+	text-align: center;
+	margin-right: 217px;
+}
+
+
+.column-9 {
+	top: 195px;
+	position: relative;
+	height: auto;
+}
+
+.column-9 p  {
+	text-align: center;
+}
+
+.column-9 p:hover {
+	background: green;
+	transition: 300ms;
+	color: black;
+}
+
+.column-9 a {
+	text-decoration: none;
+	color: green;
+	float: right;
+}
+
+.column-9 a:hover{
+	background: #BC1F2A;
+	color: #FFF;
+	transition: 300ms;
+  }
+  
+.unos {
+	text-align: center;
+}
