@@ -17,11 +17,9 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="Chart.js"></script>
+	 <script src='Chart.min.js'></script>
         <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
-        <style>
-            canvas{
-            }
-        </style>
+
 	<script>
         $(document).ready(function() {
                 $('#search').keyup(function() {
@@ -109,32 +107,36 @@
 		$result = mysqli_query($db, $sql);
 		$row = mysqli_fetch_assoc($result);
 		$size = $row['COUNT(*)'];
-		echo "TU "; echo $size; echo "DAasdasdasdasdasd";
 	  ?>
-		<script>console.log($('td:contains(ostalo)').length);</script> 
+		<script>
+			var br = $('td:contains(ostalo)').length;
+			var br2 = $('td:contains(keks)').length;
+			var br3 = $('td:contains(kola)').length;
+			var br4 = $('td:contains(jaja)').length;
+		</script> 
 		<canvas id="canvas" height="450" width="600"></canvas>
-<?php 
-		
-		$array=array
-		(
-			'0' => array
-				(
-					'product' => 'ostalo',
-					'total' => 3
-				),
-			'1' => array
-				(
-					'product' => 'kolač',
-					'total' => 4
-				),
-			'2' => array
-				(
-					'product' => 'keks',
-					'total' => 2
-				)
-		);
+	<?php 
+			$le = "<script>document.write (br);</script>";
+			$array=array
+			(
+				'0' => array
+					(
+						'product' => 'ostalo',
+						'total' => 3
+					),
+				'1' => array
+					(
+						'product' => 'kolač',
+						'total' => 4
+					),
+				'2' => array
+					(
+						'product' => 'keks',
+						'total' => 2
+					)
+			);
 
-?>
+	?>
 
 
 	<script>
@@ -168,10 +170,52 @@
     var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);
 
     </script>
+		
+		<div id="canvas-holder">
+			<canvas id="chart-area" width="300" height="300"/>
+		</div>
+	<script>
+		var pieData = [
+				{
+					value: br,
+					color:"#F7464A",
+					highlight: "#FF5A5E",
+					label: "Ostalo"
+				},
+				{
+					value: br2,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "Keks"
+				},
+				{
+					value: br3,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "Kolač"
+				},
+				{
+					value: br4,
+					color: "#949FB1",
+					highlight: "#A8B3C5",
+					label: "Jaja"
+				}
+
+			];
+
+			window.onload = function(){
+				var ctx = document.getElementById("chart-area").getContext("2d");
+				window.myPie = new Chart(ctx).Pie(pieData);
+			};
+
+
+
+	</script>
+	
+	
     </div>
 	</section>
-				
-
+	
 
 	<footer class="site-footer">
 		<p>Copyright &copy ZKD j.d.o.o. @2015. </p>

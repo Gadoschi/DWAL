@@ -46,8 +46,9 @@
 
   <div class="column column-9">
 	
-	<form method="POST" action="fopen.php">
-		<input type="text" name="naziv" id="naziv" />
+	<form method="GET" action="fopen.php">
+		<input type="text" name="proizvodjac" placeholder="Proizvođač"><br>
+		<input type="text" name="proizvod"placeholder="Proizvod"><br>
 		<input type="submit" name="submit" value="Traži">
 	</form>
 	
@@ -66,20 +67,65 @@
 	</section>
 	
 		<?php
-		if(isset($_POST['submit']))
-		{
-			include 'classes/connection.php';
-			$naziv = $_POST['naziv'];
-			$sql = "SELECT naziv,cijena FROM menu WHERE naziv = '$naziv'";
-			$result = mysqli_query($db, $sql) or die(mysqli_error());
-			$potential = array();
-			while($row = mysqli_fetch_assoc($result)){
-				$potential[] = $row;
-			}
-			echo json_encode($potential);
-		}
+		
+		if(isset($_GET['submit']))
+		
+		{	
+				include 'classes/connection.php';
+				$json = file_get_contents("http://stipe.predanic.com/TVZ/podaci.php");
+				//echo $json;
+				$obj = json_decode($json);
+				$proizvodjac= $_GET["proizvodjac"];
+				$proizvod= $_GET["proizvod"];
+				foreach ($obj as $key => $value) {
+				if( isset( $_GET['proizvodjac'] ))
+				{
+				//echo $proizvodjac;
+				//echo $proizvod;
+				//echo $value->naziv;
+					if ($value->naziv==$proizvodjac){
+						echo 'ID: '.$value->id .'<br>';
+						echo 'ID proizvodjaca: '.$value->id_proizvodjaca .'<br>';
+						echo 'Proizvod: '.$value->proizvod .'<br>';
+						echo 'Cijena: '.$value->cijena .'<br>';
+						echo 'Stanje u skladistu: '.$value->stanje_na_skladistu .'<br>';
+						echo 'Naziv proizvodjaca: '.$value->naziv .'<br>';
+						echo '///////////////////////////////////////////////////////////////////'.'<br>';
+					}
+				}
+				
 
-		?>
+				if( isset( $_GET['proizvod'] ))
+				{
+					echo $proizvod;
+					echo $value->proizvod;
+				if ($value->proizvod==$proizvod){
+					echo 'ID: '.$value->id .'<br>';
+					echo 'ID proizvodjaca: '.$value->id_proizvodjaca .'<br>';
+					echo 'Proizvod: '.$value->proizvod .'<br>';
+					echo 'Cijena: '.$value->cijena .'<br>';
+					echo 'Stanje u skladistu: '.$value->stanje_na_skladistu .'<br>';
+					echo 'Naziv proizvodjaca: '.$value->naziv .'<br>';
+					echo '///////////////////////////////////////////////////////////////////'.'<br>';
+					}
+
+				}
+				
+
+				if( isset( $_GET['proizvodjac'] ) && isset( $_GET['proizvod'] ) ){
+				if ( $value->naziv==$proizvodjac  && $value->proizvod==$proizvod){
+					echo 'ID: '.$value->id .'<br>';
+					echo 'ID proizvodjaca: '.$value->id_proizvodjaca .'<br>';
+					echo 'Proizvod: '.$value->proizvod .'<br>';
+					echo 'Cijena: '.$value->cijena .'<br>';
+					echo 'Stanje u skladistu: '.$value->stanje_na_skladistu .'<br>';
+					echo 'Naziv proizvodjaca: '.$value->naziv .'<br>';
+					echo '///////////////////////////////////////////////////////////////////'.'<br>';
+					}
+				}
+				}
+		}
+				?>
 
 		<script type="text/javascript">
 		$(document).ready(function(){
@@ -87,6 +133,7 @@
 			console.log(myArray);
 			var l = myArray.length;
 			console.log(l);
+			var myArray = ["Saab", "Volvo", "BMW"];
 			var i = -1;
 			
 				$('#prev').click(function(){
